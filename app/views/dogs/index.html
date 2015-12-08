@@ -1,0 +1,20 @@
+<h1>Listing of Dogs</h1>
+<table class='dogs-table'>
+  <tr>
+    <th>Name</th>
+    <th>Breed</th>
+  </tr>
+ 
+  <% @dogs.each do |dog| %>
+    <tr>
+      <td><%= dog.name %></td>
+      <td><%= dog.breed %></td>
+      <td><%= link_to "Show This Dog", dog_path(dog)%>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to "Add New Dog", new_dog_path %>
+<br>
+
+<%= link_to 'Home', welcome_index_path %>

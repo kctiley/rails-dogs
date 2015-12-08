@@ -1,0 +1,39 @@
+<h1> New Dog</h1>
+
+<%= link_to 'Home', welcome_index_path %>
+
+<% if @dog.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2>
+        <%= pluralize(@dog.errors.count, "error") %> prohibited
+        this dog from being saved:
+      </h2>
+      <ul>
+        <% @dog.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+<%= form_for :dog, url: dogs_path do |f| %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>  
